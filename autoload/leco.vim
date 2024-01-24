@@ -11,7 +11,7 @@ export def SetupCppBuffer()
   if search('#pragma leco tool', 'nw') > 0
     def_app = base .. ".exe"
   elseif search('#pragma leco app', 'nw') > 0
-    def_app = base .. ".app/**/" .. base .. "*"
+    def_app = base .. ".app/**/" .. base .. ".exe"
   else
     return
   endif
