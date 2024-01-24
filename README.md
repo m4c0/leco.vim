@@ -20,3 +20,9 @@ Those leader commands are a personal preference. If you are actually using both
 LECO™ and this plugin, feel free to open an issue or a pull-request to disable
 those via a global. I'll be more than glad to code it if someone **actually**
 uses all that shenanigans.
+
+## Settings
+
+* `g:LecoRunner` a FuncRef receiving the command as a parameter. Allows custom
+  execution of leco apps/tools (ex: different shell, wrap new env variables,
+  etc).

@@ -2,8 +2,13 @@ vim9script
 
 var def_app = "error"
 
+def DefaultRunner(exe: string)
+  exe "!" .. exe
+enddef
+
 def Run()
-  exe "!" .. expand("out/x86*/" .. def_app)
+  const Runner = get(g:, 'LecoRunner', DefaultRunner)
+  Runner(expand("out/x86*/" .. def_app))
 enddef
 
 export def SetupCppBuffer()
