@@ -4,5 +4,5 @@ import autoload 'leco.vim'
 
 augroup Leco
   au!
-  au BufRead,BufWritePost *.cpp,*.cppm leco.SetupCppBuffer()
+  au BufRead,BufWritePost *.c,*.cpp,*.cppm leco.SetupCppBuffer()
 augroup END
