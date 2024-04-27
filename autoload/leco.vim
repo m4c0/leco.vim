@@ -24,6 +24,6 @@ export def SetupCppBuffer()
   command! -nargs=0 LecoRun Run()
   nmap <Leader>v :LecoRun<CR>
 
-  set makeprg="../leco/leco.exe"
+  &makeprg = expand("../leco/leco.exe")
   nmap <Leader>b :make<CR>
 enddef
