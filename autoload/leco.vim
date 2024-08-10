@@ -3,7 +3,12 @@ vim9script
 var def_app = "error"
 
 def DefaultRunner(exe: string)
-  exe "!" .. exe
+  const ars = " " .. get(g:, 'leco_args', "")
+  if stridx(ars, "-t wasm") >= 0
+    exe "!" .. expand("../leco/leco.exe") .. " webserver " .. ars
+  else
+    exe "!" .. exe
+  endif
 enddef
 
 def Run()
@@ -24,6 +29,7 @@ export def SetupCppBuffer()
   command! -nargs=0 LecoRun Run()
   nmap <Leader>v :LecoRun<CR>
 
-  &makeprg = expand("../leco/leco.exe")
+  const ars = " " .. get(g:, 'leco_args', "")
+  &makeprg = expand("../leco/leco.exe") .. ars
   nmap <Leader>b :make<CR>
 enddef
