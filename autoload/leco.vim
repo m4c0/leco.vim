@@ -13,7 +13,11 @@ enddef
 
 def Run()
   const Runner = get(g:, 'LecoRunner', DefaultRunner)
-  Runner(expand("out/x86*/" .. def_app))
+  if systemlist('uname -m')[0] == 'arm64'
+    Runner(expand("out/arm64-apple-macosx*/" .. def_app))
+  else
+    Runner(expand("out/x86*/" .. def_app))
+  endif
 enddef
 
 export def SetupCppBuffer()
