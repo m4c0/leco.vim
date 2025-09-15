@@ -24,6 +24,8 @@ export def SetupCppBuffer()
   const base = expand("%:t:r")
   if search('^\s*#pragma leco tool$', 'nw') > 0
     def_app = base .. ".exe"
+  elseif search('^\s*#pragma leco test$', 'nw') > 0
+    def_app = base .. ".exe"
   elseif search('^\s*#pragma leco app$', 'nw') > 0
     def_app = base .. ".app/**/" .. base .. ".exe"
   else
